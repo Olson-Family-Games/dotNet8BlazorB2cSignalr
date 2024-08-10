@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "olsongames", "olsongames\olsongames.csproj", "{2E6F4DE1-9D70-4538-9586-87BE760886AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "olsongames.Client", "olsongames.Client\olsongames.Client.csproj", "{05D7CAC4-5D09-4B0E-B230-EAE2332160F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E6F4DE1-9D70-4538-9586-87BE760886AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6F4DE1-9D70-4538-9586-87BE760886AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6F4DE1-9D70-4538-9586-87BE760886AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6F4DE1-9D70-4538-9586-87BE760886AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D7CAC4-5D09-4B0E-B230-EAE2332160F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D7CAC4-5D09-4B0E-B230-EAE2332160F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D7CAC4-5D09-4B0E-B230-EAE2332160F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D7CAC4-5D09-4B0E-B230-EAE2332160F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C199ED0-F5EC-4900-B31A-02F8D9B23310}
+	EndGlobalSection
+EndGlobal

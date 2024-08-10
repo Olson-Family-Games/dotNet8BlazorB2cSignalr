@@ -1,0 +1,112 @@
+﻿@inject NavigationManager Navigation
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Blazor B2C SignalR Sample</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3" onclick="toggleMenu('1')">
+                    <div class="nav-link">
+                        <span class="oi @menuClass1" id="menuChevron1" aria-hidden="true" style="width:25px;"></span> OFG Online
+                    </div>
+                    <div id="nestedMenu1" class="@divClass1">
+                        <NavLink class="nav-link" href="counter">
+                            <span class="oi oi-plus" aria-hidden="true" style="text-align:center; width:30px;"> </span> Simple Counter
+                        </NavLink>
+                        <NavLink class="nav-link" href="weather">
+                            <span class="oi oi-list-rich" aria-hidden="true" style="text-align:center; width:30px;"> </span> Pretend Weather
+                        </NavLink>
+                        <NavLink class="nav-link" href="chat">
+                            <span class="oi oi-list-rich" aria-hidden="true" style="text-align:center; width:30px;"> </span> Chat
+                        </NavLink>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="MicrosoftIdentity/Account/SignIn">
+                        <span style="width:25px;" aria-hidden="true"></span> Login for more
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+        <div class="nav-item px-3">
+            <div class="nav-link" onclick="toggleMenu('9')">
+                <span class="oi @menuClass9" id="menuChevron9" aria-hidden="true" style="width:25px;"></span> Feedback &amp; Policy
+            </div>
+            <div id="nestedMenu9" class="@divClass9">
+                <NavLink class="nav-link" href="about">
+                    <span class="oi oi-list-rich" aria-hidden="true" style="text-align:center; width:30px;"></span> Feedback
+                </NavLink>
+            </div>
+        </div>
+    </nav>
+</div>
+<script>
+    function toggleMenu(id) {
+        var element = document.getElementById('nestedMenu'+id);
+        var chev = document.getElementById('menuChevron' + id);
+        if (element.classList.contains('collapse')) {
+            element.classList.remove('collapse');
+            chev.classList.remove('oi-chevron-right');
+            chev.classList.add('oi-chevron-bottom');
+        } else {
+            element.classList.add('collapse');
+            chev.classList.remove('oi-chevron-bottom');
+            chev.classList.add('oi-chevron-right');
+        }
+    }
+</script>
+@code {
+    private string menuClass1 = "oi-chevron-right";
+    private string divClass1 = "collapse";
+    private string menuClass9 = "oi-chevron-right";
+    private string divClass9 = "collapse";
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var pageName = new Uri(Navigation.Uri).AbsolutePath;
+
+        switch (pageName)
+        {
+            case "/":
+                break;
+            case "/counter":
+            case "/weather":
+            case "/chat":
+                menuClass1 = "oi-chevron-bottom";
+                divClass1 = "";
+                break;
+            case "/about":
+                menuClass9 = "oi-chevron-bottom";
+                divClass9 = "";
+                break;
+            default:
+                break;
+        }
+
+        await base.OnInitializedAsync();
+    }
+}
+
