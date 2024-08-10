@@ -13,3 +13,5 @@ There are multiple areas of the code that could/should be done better, in partic
  - The Weather page double renders
  - The NavMenu collapsing submenus
  - The UI is not pretty
+
+Also, I haven't actually connected it to a SignalR Service yet; at this point, I'm not sure I want or need to.
