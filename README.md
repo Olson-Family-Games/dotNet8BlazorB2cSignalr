@@ -22,7 +22,7 @@ Azure Resources that are needed for public deployment:
    * Necessary User Flows
    * App Registration with Web Redirect URIs: ![image](https://github.com/user-attachments/assets/fc30c5ed-1979-4fec-9232-cf12974396a1)
 
-I also have this working with Github Actions for CI/CD deployment. 
+I also have this working with Github Actions for CI/CD deployment. Here's a .yml file template to compare to:
 ```
 name: Build and deploy ASP.Net Core app to Azure Web App - olsongames
 
